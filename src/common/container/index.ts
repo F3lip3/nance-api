@@ -16,8 +16,10 @@ declare module '@fastify/awilix' {
   }
 }
 
-diContainer.register({
-  db: asValue(prisma),
-  cache: asClass(RedisProvider).singleton(),
-  getCurrenciesService: asClass(GetCurrenciesService).singleton()
-});
+export const startContainer = () => {
+  diContainer.register({
+    db: asValue(prisma),
+    cache: asClass(RedisProvider).singleton(),
+    getCurrenciesService: asClass(GetCurrenciesService).singleton()
+  });
+};

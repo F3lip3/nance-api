@@ -16,6 +16,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@clerk/fastify": "^0.6.34",
     "@fastify/awilix": "^5.0.0",
     "@fastify/websocket": "^8.3.1",
     "@prisma/client": "^5.9.1",

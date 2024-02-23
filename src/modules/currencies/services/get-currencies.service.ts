@@ -1,14 +1,6 @@
 import { ICacheProvider } from '@/common/container/providers/cache/model/cache.interface';
+import { Currency } from '@/modules/currencies/entities/currency.entity';
 import { PrismaClient } from '@prisma/client/extension';
-import z from 'zod';
-
-const currencySchema = z.object({
-  id: z.string(),
-  code: z.string(),
-  name: z.string()
-});
-
-type Currency = z.infer<typeof currencySchema>;
 
 type ServiceProps = {
   cache: ICacheProvider;
