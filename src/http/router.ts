@@ -1,7 +1,8 @@
+import { clerkClient, clerkPlugin, getAuth } from '@clerk/fastify';
 import { FastifyPluginCallback } from 'fastify';
 
 import { currenciesRouter } from '@/modules/currencies/http/routes';
-import { clerkClient, clerkPlugin, getAuth } from '@clerk/fastify';
+import { portfoliosRouter } from '@/modules/portfolios/http/routes';
 
 const protectedRoutes: FastifyPluginCallback = (instance, opts, done) => {
   instance.register(clerkPlugin);
@@ -21,6 +22,8 @@ const protectedRoutes: FastifyPluginCallback = (instance, opts, done) => {
     const user = await clerkClient.users.getUser(req.userId);
     return { user };
   });
+
+  instance.register(portfoliosRouter);
 
   done();
 };
