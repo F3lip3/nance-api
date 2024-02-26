@@ -1,7 +1,7 @@
 import fastify from 'fastify';
 
 import { startContainer } from '@/common/container';
-import { protectedRoutes, publicRoutes } from '@/http/router';
+import { router } from '@/http/router';
 import { fastifyAwilixPlugin } from '@fastify/awilix';
 
 const app = fastify({ logger: true });
@@ -13,8 +13,7 @@ app.register(fastifyAwilixPlugin, {
 
 startContainer();
 
-app.register(publicRoutes, { prefix: '/api' });
-app.register(protectedRoutes, { prefix: '/api' });
+app.register(router);
 
 const start = async () => {
   try {

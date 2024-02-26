@@ -17,7 +17,7 @@ declare module '@fastify/awilix' {
 }
 
 export const startContainer = () => {
-  diContainer.register({
+  return diContainer.register({
     db: asValue(prisma),
     cache: asClass(RedisProvider).singleton(),
     getCurrenciesService: asClass(GetCurrenciesService).singleton()
