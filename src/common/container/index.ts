@@ -30,13 +30,3 @@ export const startContainer = () => {
     getPortfoliosService: asClass(GetPortfoliosService).singleton()
   });
 };
-
-export class ContainerProps {
-  cache: ICacheProvider;
-  db: PrismaClient;
-
-  constructor(props: { cache: ICacheProvider; db: PrismaClient }) {
-    this.cache = props.cache;
-    this.db = props.db;
-  }
-}
